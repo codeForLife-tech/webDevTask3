@@ -3,7 +3,6 @@ class ArticleGrid {
     private $con, $userLoggedInObj;
     private $largeMode=false;
     private $gridClass="articleGrid";
-    private $playlistId=0;
     private $id2=0;
 
     public function __construct($con, $userLoggedInObj) {
@@ -155,13 +154,6 @@ class ArticleGrid {
     public function createLarge($articles, $title, $showFilter, $history=false, $days=0) {
         $this->gridClass .= " large";
         $this->largeMode=true;
-        return $this->create($articles, $title, $showFilter, $history, $days);
-    }
-
-    public function createLarge2($articles, $title, $showFilter, $id, $history=false, $days=0) {
-        $this->gridClass .= " large";
-        $this->largeMode=true;
-        $this->playlistId=$id;
         return $this->create($articles, $title, $showFilter, $history, $days);
     }
 
