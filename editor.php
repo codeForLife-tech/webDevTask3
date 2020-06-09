@@ -13,10 +13,18 @@ if($userLoggedInObj->getUsername()=="") {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <style>
+     .navigationItems {
+        text-align: left;
+     }
+     #tools button{
+        margin: 3px;
+     }
+  </style>
     <script src="https://kit.fontawesome.com/d1766da268.js" crossorigin="anonymous"></script>
 </head>
-<body onload="enableEditMode();">
-<div>
+<body style="text-align: center;" onload="enableEditMode();">
+<div style="padding: 1vw;margin: auto; background-color: darkturquoise;">
     <div id='tools'>
       <button onclick="execCmd('bold');"><i class="fa fa-bold"></i></button>
 <button onclick="execCmd('italic');"><i class="fa fa-italic"></i></button>
@@ -71,18 +79,19 @@ if($userLoggedInObj->getUsername()=="") {
 </select>
 Fore Color: <input type="color" onchange="execCmd('foreColor', this.value);">
 Background: <input type="color" onchange="execCmd('hiliteColor', this.value);">
-<label for='file'><i class="fa fa-file-image-o"></i></label>
+<label for='file'><i style="background: white;" class="fa fa-2x fa-file-image-o"></i></label>
    <input type="file" name="file" id="file"/>
 <!-- <button onclick="execCmd('insertImage', prompt('Enter the image URL', 'https://'));"></button> -->
 <button onclick="execCmd('selectAll');">Select All</button>
     </div>
-    <iframe name="richTextField" width="1000px"; height="500px;"></iframe>
+    <iframe name="richTextField" width="1000px;" height="500px;" style="background-color:white"></iframe>
     <form action="upload.php" method='POST' id='draftPublish'>
       <input type="text" name='content' id='draftHtml' hidden>
       <button class="btn btn-primary" onclick='submitForm()'>DRAFT AND PUBLISH</button>
     </form>
     </div>
     <script type="text/javascript">
+    document.getElementById("mainContentContainer").style.background="darkturquoise";
     var showingSourceCode=false;
     var isInEditMode=true;
     function enableEditMode() {
