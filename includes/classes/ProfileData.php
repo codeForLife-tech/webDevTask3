@@ -55,20 +55,6 @@ class ProfileData {
         return $articles;
     }
 
-    public function getUsersPlaylists() {
-        $query=$this->con->prepare("SELECT * FROM playlists WHERE uploadedBy=:uploadedBy ORDER BY timeUploaded DESC");
-        $query->bindParam(":uploadedBy", $username);
-        $username=$this->getProfileUsername();
-        $query->execute();
-
-        $playlists=array();
-        while($row=$query->fetch(PDO::FETCH_ASSOC)) {
-            $playlists[]=new Playlist($this->con, $row, $this->profileUserObj->getUsername());
-        }
-
-        return $playlists;
-    }
-
     public function getAllUserDetails() {
         return array(
           "Name"=>$this->getProfileUserFullName(),
