@@ -101,30 +101,6 @@ function status2() {
     }   
 }
 
-function addTo(button, id) {
-            var l=$("#added .articleGridItem").length;
-            var operation=$(button).find(".thumbnail").hasClass("selected")?0:1;
-            var i=operation?1:-1;
-            console.log(l+i);
-            if((l+i)>0) {
-               $("#playlistName").removeAttr("hidden");
-            }
-            else {
-                $("#playlistName").attr("hidden", true);
-            }
-            
-            $.post("playlist.php", {id:id, operation:operation})
-            .done(function(html){
-                if(operation==1) {
-                    $("#added").append(html);
-                }
-                else if(operation==0) {
-                    $("#"+id).remove();
-                }
-                $(button).find(".thumbnail").toggleClass("selected"); 
-            });
-        }
-
 $(document).ready(function(){
     $('.deleteSearch').click(function(event){
         event.preventDefault();
